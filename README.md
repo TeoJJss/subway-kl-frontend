@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+<h1>KL Subway Outlets Finder Project (Frontend)</h1>
+<h2>Introduction</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The <b>KL Subway Outlets Finder Project</b> is a project which webscrap the Subway outlets in Kuala Lumpur area from the <a href="https://subway.com.my/find-a-subway">offical outlet locator</a>. 
 
-## Available Scripts
+This repository contains the frontend script for this project.  
+It should be used together with the <a href="https://github.com/TeoJJss/subway-kl-finder">backend script</a>. 
 
-In the project directory, you can run:
+The frontend script is built using React.js with the support of Leaflet.  
 
-### `npm start`
+<h2>Prerequisites</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<b>Node 18.16.1</b> is used for the development.  
+Please install dependencies and launch the frontend.  
+```
+npm install
+npm start
+```
+The backend server should be launched simultaneously when the frontend script is launched. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2>Important Notes</h2>
 
-### `npm test`
+- This frontend script should be used together with the backend script at https://github.com/TeoJJss/subway-kl-finder. The frontend script will send HTTP requests to the APIs in this backend server. 
+- The backend server is hosted at the 8000 port by default. If it is changed, please change the URL at `./src/App.js`, `url` const at line 8.
+- The frontend is hosted at the 3000 port by default. 
+- When the frontend is launched, the webpage takes some time to send HTTP request and render markers on the Leaflet map.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>Interact with the markers on Leaflet map</h2>
 
-### `npm run build`
+Clicking on a marker on the Leaflet map will turn the clicked marker and other markers within 5km radius to yellow marker icon. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Use of search box</h2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Currently, the search box which is located above the map supports the following queries:
+- Which are the outlets that close the latest
+- How many outlets are located in [area]  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+While this search functionality does not support other types of queries, feel free to try out multiple ways to express the above queries which are suppported (in English).  
+Matched outlets will be marked with red marker icons on the Leaflet map.  
