@@ -135,7 +135,7 @@ const MapContainerComponent = ({ url }) => {
     };
 
     return (
-        <div style={{ margin: '5%' }}>
+        <div style={{ width: '80%', margin: 'auto', marginTop: '3%', marginBottom: '5%' }}>
             <h1>Subway KL Outlets Map</h1>
             {!!loading ? (
                 <p></p>
@@ -153,23 +153,31 @@ const MapContainerComponent = ({ url }) => {
                             <button type="submit" style={{ height: '2vw' }}>Search</button>
                         </form>
                         {searched && type === "outlets_in_location" && (
-                            <p>Found {outletsCount} outlets matching your search.</p>
+                            <p>Found <b style={{ color: 'blue' }}>{outletsCount}</b> outlets matching your search.</p>
                         )}
                     </div>
                     <p>Click a marker in the map to view details and highlight nearby outlets within 5km radius</p>
                 </React.Fragment>
             )}
             {loading ? (
-                <div style={{ marginLeft: "10%" }}>
+                <div style={{
+                    width: '80%',
+                    height: '500px',
+                    border: '2px solid blue',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                }}>
                     <InfinitySpin
                         visible={loading}
-                        width="200"
                         color="blue"
                         ariaLabel="infinity-spin-loading"
                     />
+                    <b style={{ color: "blue", marginTop: "2%", fontFamily: 'sans-serif' }}>Loading map, please wait....</b>
                 </div>
             ) : (
-                <MapContainer center={[3.139, 101.6841]} zoom={13} style={{ height: '500px', width: '80%' }}>
+                <MapContainer center={[3.139, 101.6841]} zoom={13} style={{ height: '550px', width: '85%' }}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
