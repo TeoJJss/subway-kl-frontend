@@ -21,7 +21,7 @@ The backend server should be launched simultaneously when the frontend script is
 <h2>Important Notes</h2>
 
 - This frontend script should be used together with the backend script at https://github.com/TeoJJss/subway-kl-finder. The frontend script will send HTTP requests to the APIs in the backend server. 
-- The backend server is hosted at the 8000 port by default. If it is changed, please change the URL at `./src/App.js`, `url` const at line 8.
+- The backend server is hosted at the 8000 port by default. If it is changed, please change the URL at `./src/App.js`, `url` const.
 - The frontend is hosted at the 3000 port by default. 
 - When the frontend is launched, the webpage takes some time to send HTTP request and render markers on the Leaflet map.
 
