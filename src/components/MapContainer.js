@@ -61,6 +61,7 @@ const MapContainerComponent = ({ url }) => {
             }));
             setOutlets(formattedOutlets);
         } catch (error) {
+            alert("Sorry, the service is unavailable at the moment as the backend server is inactive. Please try again later. ");
             console.error('Error fetching outlets:', error);
         } finally {
             setLoading(false);
@@ -130,6 +131,7 @@ const MapContainerComponent = ({ url }) => {
             });
 
             setOutlets(updatedMarkers);
+            alert("Sorry, your query is not supported. ");
             // setSearched(false);
         }
     };
@@ -150,7 +152,7 @@ const MapContainerComponent = ({ url }) => {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 style={{ width: '60vw', height: '1.5vw', fontSize: '1vw' }}
                             />
-                            <button type="submit" style={{ height: '2vw' }}>Search</button>
+                            <button type="submit" style={{ height: '2vw', cursor: 'pointer' }}>Search</button>
                         </form>
                         {searched && type === "outlets_in_location" && (
                             <p>Found <b style={{ color: 'blue' }}>{outletsCount}</b> outlets matching your search.</p>
@@ -177,7 +179,7 @@ const MapContainerComponent = ({ url }) => {
                     <b style={{ color: "blue", marginTop: "2%", fontFamily: 'sans-serif' }}>Loading map, please wait....</b>
                 </div>
             ) : (
-                <MapContainer center={[3.139, 101.6841]} zoom={13} style={{ height: '550px', width: '85%' }}>
+                <MapContainer center={[3.139, 101.6841]} zoom={12} style={{ height: '550px', width: '85%' }}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
